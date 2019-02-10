@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block body %}
+  <main role="main" class="container bg-site">
+    <div class="row mb-3">
+      <div class="col-md-12 themed-grid-col">
+        <h1>Excluindo Item de uma categoria</h1>
+        <form action="#" method = 'post'>
+          <p class="alert alert-danger">
+            Você confirma que deseja excluir o item <strong>{{item.nome}}</strong>?
+          </p>
+          <input type="submit" class="btn btn-danger" value="Confirmar">
+          <a href="{{url_for('showItens', categoria_nome = categoria.nome)}}" class="btn btn-info">Voltar</a>
+        </form>
+      </div>
+    </div>
+    <br/>
+  </main><!-- /.container -->
+{% endblock %}

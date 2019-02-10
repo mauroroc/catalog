@@ -1,0 +1,21 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .botao{
+      float:right;
+  }
+
+  .bg-site {
+      padding: 4 rem 2 rem;
+      background-color: #e9ecef;
+      margin-bottom: 2 rem;
+      box-sizing: border-box;
+  }

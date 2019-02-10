@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% block body %}
+    <main role="main" class="container bg-site">
+        <div class="row mb-3">
+          <div class="col-md-6 themed-grid-col">
+            <h1>Categorias</h1>
+            <ul class="list-group">
+              {% for categoria in categorias %}
+              <li class="list-group-item">
+                <a class="text-muted" href="{{url_for('showItens', categoria_nome = categoria.nome)}}">{{categoria.nome}}</a>
+                {% if login.nome == categoria.user %}
+                  <a class="badge badge-warning" href="{{url_for('editCategoria', categoria_id = categoria.id)}}">Editar</a> |
+                  <a class="badge badge-danger" href="{{url_for('deleteCategoria', categoria_id = categoria.id)}}">Excluir</a>
+                {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+            <div class="col-md-6 themed-grid-col">
+              <h1>Últimos Itens Cadastrados</h1>
+            <ul class="list-group">
+                {% for item in itens %}
+                <li class="list-group-item">
+                  <h6 class="my-0">{{item.nome}}</h6>
+                </li>
+              {% endfor %}
+              </ul>
+            </div>
+        </div>
+      <br/><br/>
+    </main><!-- /.container -->
+{% endblock %}
+    

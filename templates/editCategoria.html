@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block body %}
+  <main role="main" class="container bg-site">
+    <div class="row mb-3">
+      <div class="col-md-12 themed-grid-col">
+        <h1>Editar Categoria</h1>
+        <form action="{{ url_for('editCategoria',categoria_id = categoria.id)}}" method = 'post'>
+          <div class="form-group">
+            <label for="titulo">Nome</label>
+            <input type="text" class="form-control" name="nome" value = '{{categoria.nome }}'>  
+          </div>
+          <input type="submit" class="btn btn-success">
+          <a href="{{url_for('showCategorias')}}" class="btn btn-info">Voltar</a>
+        </form>
+      </div>
+    </div>
+  </main><!-- /.container -->
+{% endblock %}

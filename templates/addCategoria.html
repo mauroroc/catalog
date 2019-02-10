@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% block body %}
+  <main role="main" class="container bg-site">
+    <div class="row mb-3">
+      <div class="col-md-12 themed-grid-col">
+        <h1>Criar uma nova Categoria</h1>
+        <form action="#" method = "POST">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome">  
+          </div>
+            <input type="submit" class="btn btn-success">
+            <a href="{{url_for('showCategorias')}}" class="btn btn-info">Voltar</a>
+        </form>
+      </div>
+    </div>
+    <br/>
+  </main><!-- /.container -->
+{% endblock %}

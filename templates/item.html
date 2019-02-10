@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block body %}        
+    <main role="main" class="container bg-site">
+      <div class="row mb-3">
+        <div class="col-md-12 themed-grid-col">
+          <h1>{{item.nome}}</h1>
+          <h6 class="my-0">{{item.descricao}}</h6>
+          <br/>
+          {% if login.nome == item.user %}
+            <a class="badge badge-warning" href="{{url_for('editItem', item_id = item.id)}}">Editar</a> | 
+            <a class="badge badge-danger" href="{{url_for('deleteItem', item_id = item.id)}}">Excluir</a> | 
+          {% endif %}
+          <a class="badge badge-info" href="{{url_for('showItens', categoria_nome = categoria_nome)}}">Voltar</a>
+        </div>
+      </div>
+      <br/>
+    </main><!-- /.container -->
+{% endblock %}
