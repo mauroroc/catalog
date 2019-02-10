@@ -131,6 +131,28 @@ def gdisconnect():
     return redirect(url_for('showCategorias'))
 
 
+# Gera JSON de todas as categorias existentes
+@app.route('/jsonCategorias')
+def jsonCategorias():
+    categorias = session.query(Categoria).all()
+    return jsonify(Categoria=[i.serialize for i in categorias])
+
+
+# Gera JSON de todos os itens existentes
+@app.route('/jsonItens')
+def jsonItens():
+    itens = session.query(Item).all()
+    return jsonify(Item=[i.serialize for i in itens])
+
+
+# Gera JSON de um item que teve o id fornecido
+@app.route('/jsonItem/<int:item_id>')
+def jsonItem(item_id):
+    item = session.query(Item).filter_by(id=item_id).one()
+    #return jsonify(Item=[i.serialize for i in itens])
+    return jsonify(Item=item.serialize)
+
+
 # Lista todas as categorias / pagina inicial
 @app.route('/')
 @app.route('/catalog/')
@@ -308,19 +330,6 @@ def showItem(item_nome, categoria_nome):
     else:
         return redirect(url_for('showCategorias'))
 
-
-# Gera JSON de todas as categorias existentes
-@app.route('/catalog/jsonCategorias')
-def jsonCategorias():
-    categorias = session.query(Categoria).all()
-    return jsonify(Categoria=[i.serialize for i in categorias])
-
-
-# Gera JSON de todos os itens existentes
-@app.route('/catalog/jsonItens')
-def jsonItens():
-    itens = session.query(Item).all()
-    return jsonify(Item=[i.serialize for i in itens])
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
